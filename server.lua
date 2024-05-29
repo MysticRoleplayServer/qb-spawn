@@ -1,8 +1,8 @@
 local QBCore = exports['qb-core']:GetCoreObject()
 
-QBCore.Functions.CreateCallback('qb-spawn:server:getOwnedHouses', function(_, cb, cid) -- ps-housing
+QBCore.Functions.CreateCallback('qb-spawn:server:getOwnedHouses', function(_, cb, cid) -- bcs-housing
     if cid ~= nil then
-        local houses = MySQL.query.await('SELECT * FROM properties WHERE owner_citizenid = ?', {cid})
+        local houses = exports['bcs_housing']:GetOwnedHomes(cid)
         if houses[1] ~= nil then
             cb(houses)
         else
