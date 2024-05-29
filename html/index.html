@@ -85,8 +85,8 @@
                 },
 
                 methods: {
-                    click_location: function(type, name) {
-                        if (type == "normal") { 
+                    click_location: function(type, name) { // bcs-housing
+                        if (type == "normal" || type == "house") {
                             axios.post('https://qb-spawn/setCam', {
                                 posname: name,
                                 type: type,
